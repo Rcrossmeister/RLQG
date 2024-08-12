@@ -16,23 +16,16 @@ We propose a novel framework for generating better questions in QA-based event e
 
 **The GPU resources we use in our study is 4*A800-SXM4-80G with the corresponding CUDA version 12.1,** we strongly recommend using the torch version above 2.0.
 
-#### Clone the repository
-
 ```shell
+# Clone the repository
 git clone https://github.com/Rcrossmeister/RLQG.git
 cd RLQG
-```
 
-#### Create the conda environment
-
-```shell
+# Create the conda environment
 conda create -n rlqg python=3.11.3
 conda activate rlqg
-```
 
-#### Install the required packages
-
-```shell
+# Install the required packages
 pip install -r requirements.txt
 python -m spacy download en_core_web_lg
 python -m nltk.downloader punkt
@@ -40,19 +33,19 @@ python -m nltk.downloader punkt
 
 ### Dataset
 
-We use **[ACE2005](https://catalog.ldc.upenn.edu/LDC2006T06)** and **[RAMS](https://nlp.jhu.edu/rams/)** dataset in our study, please follow their copyright to download them respectively, another widely-used dataset [WiKiEvent](https://github.com/raspberryice/gen-arg) is planning to support soon. 
+We use **[ACE2005](https://catalog.ldc.upenn.edu/LDC2006T06)** and **[RAMS](https://nlp.jhu.edu/rams/)** dataset in our study, please follow their copyright to download the required one (ACE2005 with more template options is prefered), another widely-used dataset [WiKiEvent](https://github.com/raspberryice/gen-arg) is planning to support soon. 
 
-#### Pre-processing
+**Pre-processing**
 
-**ACE2005**: Follow `./dataset/ACE2005/README.md`.
+```shell
+cd ./dataset
+```
 
-**RAMS**: Follow `./dataset/RAMS/README.md`.
+Then follow `./ACE2005/README.md` or `./RAMS/README.md` to pre-process the ACE2005 or RAMS dataset accordingly.
 
-#### Get template questions
+**Teamplate questions for ACE2005**
 
-**ACE2005**
-
-There are 3 types of template questions for ACE2005 dataset include `standard`, `annotation` and `dynamic`, you can check more details [here](./dataset/ACE2005/ace_templates). We recommned the `dynamic` template if there is no additional setting for you.
+There are 3 types of template questions for ACE2005 dataset include `standard`, `annotation` and `dynamic`, you can check more details [here](./dataset/ACE2005/ace_templates). We recommned the `dynamic` template if there is no additional setting for you, which is also the default setting for argument `--template_type`.
 
 ```shell
 cd ./dataset
@@ -62,9 +55,9 @@ cd ../
 
 The questions for supervised fine-tune a QG model and also beam search implementation will be saved at `./model/data`.
 
-**RAMS**
+**Teamplate questions for RAMS**
 
-Currently, we only support `standard` template questions in RAMS dataset, see more details [here](./dataset/RAMS/rams_templates). The questions can be directly obtain in the last step and will be saved at `./model/data`.
+Currently, we only support `standard` template questions in RAMS dataset, see more details [here](./dataset/RAMS/rams_templates). The questions can be directly obtain in the pre-processing step and will be saved at `./model/data`.
 
 ### Models
 
