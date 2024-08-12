@@ -27,7 +27,7 @@ stage = ["train", "dev"]
 
 for s in stage:
     data = []
-    with open(args.input_path + f"/{s}.jsonlines", 'r', encoding='utf-8') as file:
+    with open(args.input_path + f"/data/{s}.jsonlines", 'r', encoding='utf-8') as file:
         for line in file:
             data.append(line.strip())
 
@@ -77,5 +77,5 @@ for s in stage:
             }
             outputs.append(output)
 
-with open("../../models/data/SFT-standard-RAMS.json", 'w', encoding='utf-8') as file:
+with open("../../model/data/SFT-standard-RAMS.json", 'w', encoding='utf-8') as file:
     json.dump(outputs, file, indent=4)

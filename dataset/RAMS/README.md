@@ -25,4 +25,4 @@ RAMS
 python rams_load.py [path-to-RAMS-data]
 ```
 
-Here, `[path-to-RAMS-data]` should be replaced with the path to your RAMS dataset. The script will automatically generate the `standard` question, and the questions will be saved in `RLQG/models/data/SFT-standard-RAMS.json`.
+Here, `[path-to-RAMS-data]` should be replaced with the path to your RAMS dataset. The script will automatically generate the `standard` question, and the questions will be saved in `RLQG/model/data/SFT-standard-RAMS.json`.
