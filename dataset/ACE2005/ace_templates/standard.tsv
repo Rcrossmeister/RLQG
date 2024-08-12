@@ -1,0 +1,98 @@
+type	subtype	arg	questions
+Business	Declare-Bankruptcy	Place	Where it takes place?
+		Org	What is the Org?
+	End-Org	Place	Where the event takes place?
+		Org	What is the Org?
+	Merge-Org	Org	What is the Org?
+	Start-Org	Org	What is the Org?
+		Place	Where the event takes place?
+		Agent	Who is the agent?
+Conflict	Attack	Place	Where the event takes place?
+		Target	Who is the target?
+		Attacker	Who is the attacker?
+		Instrument	What is the instrument?
+	Demonstrate	Entity	Who is the entity?
+		Place	Where the event takes place?
+Justice	Acquit	Defendant	Who is the defendant?
+		Adjudicator	Who is the adjudicator?
+	Appeal	Adjudicator	Who is the adjudicator?
+		Defendant	Who is the defendant?
+		Place	Where the event takes place?
+	Arrest-Jail	Person	Who is the person?
+		Agent	Who is the agent?
+		Place	Where the event takes place?
+	Charge-Indict	Adjudicator	Who is the adjudicator?
+		Defendant	Who is the defendant?
+		Prosecutor	Who is the prosecutor?
+		Place	Where the event takes place?
+	Convict	Defendant	Who is the defendant?
+		Adjudicator	Who is the adjudicator?
+		Place	Where the event takes place?
+	Execute	Place	Where the event takes place?
+		Agent	Who is the agent?
+		Person	Who is the person?
+	Extradite	Origin	Where is the origin?
+		Destination	Where is the destination?
+		Agent	Who is the agent?
+	Fine	Entity	What is the entity?
+		Adjudicator	Who is the adjudicator?
+		Place	Where the event takes place?
+	Pardon	Adjudicator	Who is the adjudicator?
+		Place	Where the event takes place?
+		Defendant	Who is the defendant?
+	Release-Parole	Entity	Who is the entity?
+		Person	Who is the person?
+		Place	Where the event takes place?
+	Sentence	Defendant	Who is the defendant?
+		Adjudicator	Who is the adjudicator?
+		Place	Where the event takes place?
+	Sue	Plaintiff	Who is the plaintiff?
+		Defendant	Who is the defendant?
+		Adjudicator	Who is the adjudicator?
+		Place	Where the event takes place?
+	Trial-Hearing	Defendant	Who is the defendant?
+		Place	Where the event takes place?
+		Adjudicator	Who is the adjudicator?
+		Prosecutor	Who is the prosecutor?
+Life	Be-Born	Place	Where the event takes place?
+		Person	Who is the person?
+	Die	Victim	Who is the victim?
+		Agent	Who is the agent?
+		Place	Where the event takes place?
+		Instrument	What is the instrument?
+	Divorce	Person	Who is the person?
+		Place	Where the event takes place?
+	Injure	Victim	Who is the victim?
+		Agent	Who is the agent?
+		Place	Where the event takes place?
+		Instrument	What is the instrument?
+	Marry	Person	Who is the person?
+		Place	Where the event takes place?
+Movement	Transport	Vehicle	What is the vehicle?
+		Artifact	Who is the artifact?
+		Destination	Where is the destination?
+		Agent	Who is the agent?
+		Origin	What is the origination?
+Personnel	Elect	Person	Who is the person?
+		Agent	Who is the entity?
+		Place	Where the event takes place?
+	End-Position	Entity	Who is the entity?
+		Person	Who is the person?
+		Place	Where the event takes place?
+	Nominate	Person	Who is the person?
+		Agent	Who is the agent?
+	Start-Position	Person	Who is the person?
+		Entity	Who is the entity?
+		Place	Where the event takes place?
+Transaction	Transfer-Money	Giver	Who is the giver?
+		Recipient	Who is the recipient?
+		Beneficiary	Who is the beneficiary?
+		Place	Where the event takes place?
+	Transfer-Ownership	Buyer	Who is the buyer?
+		Artifact	Who is the artifact?
+		Seller	Who is the seller?
+		Place	Where the event takes place?
+		Beneficiary	Who is the beneficiary?
+Contact	Meet	Entity	Who is entity?
+		Place	Where the event takes place?
+	Phone-Write	Entity	Who is entity?
