@@ -6,7 +6,7 @@
 
 **[2024/05] Our paper is accepted as a findings paper in ACL2024!**
 
-We propose a novel framework for generating better questions in QA-based event extraction, the paper is available [here](https://arxiv.org/abs/2402.11517).
+We propose a novel framework **RLQG** for generating better questions in QA-based event extraction via reinforcement learning, the paper is available [here](https://arxiv.org/abs/2402.11517).
 
 <img src="./slides/Framework.png" alt="Framework" style="zoom:150%;" />
 
@@ -64,27 +64,54 @@ Currently, we only support `standard` template questions in RAMS dataset, see mo
 We use [LLaMA-2](https://github.com/meta-llama/llama) as the backbone model in our paper, and we also support several popular open-source LLMs like [ChatGLM](https://github.com/THUDM/ChatGLM-6B) and [Qwen](https://github.com/QwenLM/Qwen). To load the model weight locally, using [LLaMA-2-7b](https://huggingface.co/meta-llama/Llama-2-7b-hf) as an example:
 
 ```shell
-mkdir backbone_model
-cd backbone_model
+mkdir backbone_model && cd backbone_model
 git lfs install
 git clone https://huggingface.co/meta-llama/Llama-2-7b-hf
 ```
 
-Or you can replace the local path at argument `--model_name_or_path` by the repository name of huggingface (e.g. `meta-llama/Llama-2-7b-hf`) in the following training script, the model weight will be download and load automatically.
+Or you can replace the local path at argument `--model_name_or_path` by the repository name of huggingface (e.g. `meta-llama/Llama-2-7b-hf`) in the following training script, the model weight will be download and load automatically.  
 
 ## Training
 
-The training implementaion was inspired by **[LLaMA Factory](https://github.com/hiyouga/LLaMA-Factory)**, you can check their technical report [here](https://arxiv.org/abs/2403.13372). To have better robustness, in this repository, we use DPO training after SFT instead of as refining algorithm. If you're interested in PPO, please refer to the usage [here]() (will be support in this repository soon).
+The training implementaion was inspired by **[LLaMA Factory](https://github.com/hiyouga/LLaMA-Factory)**, you can check their technical report [here](https://arxiv.org/abs/2403.13372). To have better robustness, in this repository, we use DPO training after SFT instead of as refining algorithm. If you're interested in PPO, please refer to the usage [here]() (will be support in this repository soon). 
+
+> **If you need to use the fine-tuned Inverse Prompting Model, please download `Rcross/IPM-Llama-2-13b` to `./backbone_model` before start.**
 
 ### Quick Start
 
-We provide a script to quick start on ACE2005 dataset, which supervised fine-tune the QG model over the dynamic template questions proposed by [(Lu et al., 2023)](https://arxiv.org/abs/2307.05567), and further refined by the RLQG framework.
+We provide a script to quick start on ACE2005 dataset, which supervised fine-tune the QG model over the dynamic template questions proposed by [(Lu et al., 2023)](https://arxiv.org/abs/2307.05567), and further refined by the RLQG framework. 
+
+```shell
+cd ./model && sh run.sh 
+```
+
+> **Please download `meta-llama/Llama-2-7b-hf`, `meta-llama/Llama-2-13b-hf` and `meta-llama/Llama-2-13b-chat-hf` to`./backbone_model` before using the quick start script.** 
+
+### Detailed Workflow
+
+Our framework involves the cooperation of several modules, check more details [here](./model/README.md) for their usage.
+
+## Evaluation
+
+### Question Answering
+
+We support two paradigms to answer the generated questions.
+
+**LLaMA-2 QA**
+
+```shell
 
 ```
-sh run.sh 
+
+**OpenAI QA**
+
+```shell
+
 ```
 
-Using this script, you are expected to obtain the experimental results in Table 2 in our paper, looks like follows:
+### Response Assessment
+
+If you use the quick start, you are expected to obtain the experimental results in Table 2 in our paper, looks like follows:
 
 ```
 ============================ Practical Eval ============================
