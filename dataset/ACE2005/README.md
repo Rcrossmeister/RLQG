@@ -1,10 +1,10 @@
 # ACE2005 Data Pre-processing
 
-The scripts are adapted from the [Dygiepp](https://github.com/dwadden/dygiepp) and inspired by [QGA-EE](https://github.com/dataminr-ai/Event-Extraction-as-Question-Generation-and-Answering). We delete some unrelevant elements and process to our paper, this README aims to instruct users to preprocess the raw ACE2005 data before getting the question generation and answering data for event extraction.
+These scripts are adapted from [Dygiepp](https://github.com/dwadden/dygiepp) and are inspired by [QGA-EE](https://github.com/dataminr-ai/Event-Extraction-as-Question-Generation-and-Answering). We have removed some irrelevant elements and made specific modifications for our paper. This README provides instructions for preprocessing the raw ACE2005 data to prepare it for question generation and answering in event extraction.
 
 ## Setup 
 
-Download the dataset, and the directory architecture of ACE2005 dataset should be as follows:
+First, download the ACE2005 dataset. The directory structure of the ACE2005 dataset should be as follows:
 
 ```
 ACE2005
@@ -24,7 +24,7 @@ ACE2005
 └── index.html
 ```
 
-We are targeting to process the English version of ACE2005, an old version of Spacy is required to work with the preprocessing code:
+We will be processing the English version of ACE2005. An older version of SpaCy is required for the preprocessing code:
 
 ```shell
 conda deactivate
@@ -37,28 +37,29 @@ mkdir data
 
 ## Usage
 
-Firstly, collect the relevant files from the ACE data distribution with:
+First, collect the relevant files from the ACE data distribution with the following command:
 
 ```
 bash ./scripts/ace-event/collect_ace_event.sh [path-to-ACE-data].
 ```
 
-the argument `[path-to-ACE-data]` is exactly where your ACE2005 dataset is, the script will automatically load the English version. The results will go in `./data/raw-data`.
+Here, `[path-to-ACE-data]` should be replaced with the path to your ACE2005 dataset. The script will automatically load the English version, and the results will be saved in `./data/raw-data`.
 
-Then, run the script:
+Next, run the script to parse the data:
 
 ```
 python ./scripts/ace-event/parse_ace_event.py default-settings
 ```
 
-the preprocess procedure will take around **5 minutes**, take a break.
+The preprocessing procedure will take approximately 5 minutes, please take a short break while it runs :).
 
-Since default setting is good enough for our study, we do not add additional arguments. Check more detailed descriptions in [DATA.md](./scripts/DATA.md), and more usages in this [repository](https://github.com/dataminr-ai/Event-Extraction-as-Question-Generation-and-Answering/tree/main/data_process). The results will go in `./data/processed-data/default-settings/json`.
+Since the default settings are sufficient for our study, no additional arguments are needed. For more detailed descriptions, see [DATA.md](./scripts/DATA.md), and for more usage examples, refer to this [repository](https://github.com/dataminr-ai/Event-Extraction-as-Question-Generation-and-Answering/tree/main/data_process). The processed results will be saved in `./data/processed-data/default-settings/json`.
 
-Finally, run convert script to convert to one sentence/line format:
+Finally, run the conversion script to convert the data to a one-sentence-per-line format:
 
 ```
-python scripts/ace-event/convert_examples_char.py
+python ./scripts/ace-event/convert_examples_char.py
 ```
 
-When finished, you should `conda deactivate` the `ace-event-preprocess` environment and re-activate your modeling environment.
+After finishing, deactivate the `ace-event-preprocess` environment and reactivate your modeling environment:
+
