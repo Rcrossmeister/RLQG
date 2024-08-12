@@ -1,4 +1,4 @@
-# RLQG
+# RLQG - Towards Better QG in QA-based EE
 
 **[2024/08] The video presentation of our paper will be available soon.**
 
