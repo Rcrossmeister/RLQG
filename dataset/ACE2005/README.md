@@ -40,7 +40,7 @@ mkdir data
 First, collect the relevant files from the ACE data distribution with the following command:
 
 ```
-bash ./scripts/ace-event/collect_ace_event.sh [path-to-ACE-data].
+bash ./scripts/ace-event/collect_ace_event.sh [path-to-ACE-data]
 ```
 
 Here, `[path-to-ACE-data]` should be replaced with the path to your ACE2005 dataset. The script will automatically load the English version, and the results will be saved in `./data/raw-data`.
