@@ -2,7 +2,7 @@
 
 **[2024/08] The video presentation of our paper will be available soon.**
 
-**[2024/08] The presentation of our paper are scheduled at Virtual Poster Session 2, check the poster and slides [here](). **
+**[2024/08] The presentation of our paper are scheduled at Virtual Poster Session 2, check the poster and slides [here]().**
 
 **[2024/05] Our paper is accepted as a findings paper in ACL2024!**
 
@@ -99,7 +99,7 @@ The training implementaion was inspired by **[LLaMA Factory](https://github.com/
 
 We provide a script to quick start on ACE2005 dataset, which supervised fine-tune the QG model over the dynamic template questions proposed by [(Lu et al., 2023)](https://arxiv.org/abs/2307.05567), and further refined by the RLQG framework.
 
-```shell
+```
 sh run.sh 
 ```
 
@@ -116,6 +116,8 @@ Metric              EM                  COR                 SemSim
 ========================================================================
 Value(%)          21.94                24.31                31.92  
 ```
+
+
 
 ## Citation
 
