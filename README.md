@@ -8,7 +8,7 @@
 
 We propose a novel framework for generating better questions in QA-based event extraction, the paper is available [here](https://arxiv.org/abs/2402.11517).
 
-<img src="./slides/Framework.pdf" alt="Framework" style="zoom:150%;" />
+<img src="./slides/Framework.png" alt="Framework" style="zoom:150%;" />
 
 ## Setup
 
@@ -44,21 +44,9 @@ We use **[ACE2005](https://catalog.ldc.upenn.edu/LDC2006T06)** and **[RAMS](http
 
 #### Pre-processing
 
-**ACE2005**
+**ACE2005**: Follow `./dataset/ACE2005/README.md`.
 
-Follow this [README.md](./dataset/ACE2005/README.md) to preprocess the raw ACE2005 dataset before get start.
-
-```shell
-cd ./dataset/ACE2005
-```
-
-**RAMS**
-
-Follow this [README.md](./dataset/RAMS/README.md) to preprocess the RAMS dataset and directly get the template questions.
-
-```shell
-cd ./dataset/RAMS
-```
+**RAMS**: Follow `./dataset/RAMS/README.md`.
 
 #### Get template questions
 
@@ -116,8 +104,6 @@ Metric              EM                  COR                 SemSim
 ========================================================================
 Value(%)          21.94                24.31                31.92  
 ```
-
-
 
 ## Citation
 
