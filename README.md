@@ -75,7 +75,6 @@ Or you can replace the local path at argument `--model_name_or_path` by the repo
 
 The training implementaion was inspired by **[LLaMA Factory](https://github.com/hiyouga/LLaMA-Factory)**, you can check their technical report [here](https://arxiv.org/abs/2403.13372). To have better robustness, in this repository, we use DPO training after SFT instead of as refining algorithm. If you're interested in PPO, please refer to the usage [here]() (will be support in this repository soon). 
 
->
 > \[!TIP\]
 > **If you need to use the fine-tuned Inverse Prompting Model, please download `Rcross/IPM-Llama-2-13b` to `./backbone_model` before start.**
 
@@ -87,6 +86,7 @@ We provide a script to quick start on ACE2005 dataset, which supervised fine-tun
 cd ./model && sh run.sh 
 ```
 
+> \[!IMPORTANT\]
 > **Please download `meta-llama/Llama-2-7b-hf`, `meta-llama/Llama-2-13b-hf` and `meta-llama/Llama-2-13b-chat-hf` to`./backbone_model` before using the quick start script.** 
 
 ### Detailed Workflow
