@@ -41,7 +41,7 @@ mkdir data
 First, collect the relevant files from the ACE data distribution with the following command:
 
 ```
-bash ./scripts/ace-event/collect_ace_event.sh [path-to-ACE-data]
+sh scripts/ace-event/collect_ace_event.sh [path-to-ACE-data]
 ```
 
 Here, `[path-to-ACE-data]` should be replaced with the path to your ACE2005 dataset. The script will automatically load the English version, and the results will be saved in `./data/raw-data`.
@@ -49,7 +49,7 @@ Here, `[path-to-ACE-data]` should be replaced with the path to your ACE2005 data
 Next, run the script to parse the data:
 
 ```
-python ./scripts/ace-event/parse_ace_event.py default-settings
+python scripts/ace-event/parse_ace_event.py default-settings
 ```
 
 The preprocessing procedure will take approximately 5 minutes, please take a short break while it runs :).
@@ -59,7 +59,7 @@ Since the default settings are sufficient for our study, no additional arguments
 Finally, run the conversion script to convert the data to a one-sentence-per-line format:
 
 ```
-python ./scripts/ace-event/convert_examples_char.py
+python scripts/ace-event/convert_examples_char.py
 ```
 
 After finishing, deactivate the `ace-event-preprocess` environment and reactivate your modeling environment:
