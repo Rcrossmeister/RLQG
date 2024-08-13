@@ -19,7 +19,7 @@ We propose a novel framework **RLQG** for generating better questions in QA-base
 ```shell
 # Clone the repository
 git clone https://github.com/Rcrossmeister/RLQG.git
-cd RLQG
+cd ./RLQG
 
 # Create the conda environment
 conda create -n rlqg python=3.11.3
@@ -37,18 +37,17 @@ We use **[ACE2005](https://catalog.ldc.upenn.edu/LDC2006T06)** and **[RAMS](http
 
 **Pre-processing**
 
-Follow **`./ACE2005/README.md`** or **`./RAMS/README.md`** to pre-process your raw ACE2005 or RAMS dataset accordingly. Data pre-processing is compulsory in our study before getting template questions.
+Follow **`./ACE2005/README.md`** or **`./RAMS/README.md`** to pre-process the ACE2005 or RAMS dataset accordingly. Data pre-processing is compulsory in our study when you are using raw dataset before getting template questions.
 
 **Teamplate questions for ACE2005**
 
-There are 3 types of template questions for ACE2005 dataset include `standard`, `annotation` and `dynamic`, you can check more details [here](./dataset/ACE2005/ace_templates). We recommned the `dynamic` template if there is no additional setting for you, which is also the default setting for argument `--template_type`.
+We support 3 types of template questions for ACE2005 dataset include `standard`, `annotation` and `dynamic`, you can check more details [here](./dataset/ACE2005/ace_templates). **We recommned the `dynamic` template** if there is no additional setting for you, which is also the default setting for the argument `--template_type`.
 
 ```shell
-cd ./dataset
-python ./src/template_qg.py --template_type dynamic && cd ../
+python dataset/template_qg.py --template_type dynamic
 ```
 
-The questions used for supervised fine-tune a QG model and also used to obtain beam search implementation will be saved at `./model/data`.
+The questions used for supervised fine-tune a QG model and also be used to get beam search implementation will be saved at `./model/data`.
 
 **Teamplate questions for RAMS**
 
@@ -86,7 +85,7 @@ cd ./model && sh run.sh
 
 ### Detailed Workflow
 
-You can check the detailed workflow and usage in this [README](), for each module involved in `run.sh`.
+You can check the detailed workflow and more usage in this [README](), which explain each module involved in the quick start script `run.sh`.
 
 ## Evaluation
 
@@ -96,19 +95,32 @@ We support two paradigms to answer the generated questions:
 
 **LLaMA-2 QA**
 
+Using the open-source model such as LLaMA-2 to answer the generated questions with few-shot prompting, the server is deployed follow OpenAI API style. Fill in `[your-url-port]` with the port you use to deploy your local QA model.
 
-
-```shell
-
+```bash
+python evaluation/llama2_qa.py \
+    --url http://localhost:[your-url-port]/v1/chat/completions \
+    --input_dir [path-to-QG-file] \
+    --num_shots 5 \
+		--model_name [QA-model-name]
 ```
 
+>\[!TIP\]
+>We support various open-source model to serve as the QA model in our framework (e.g. ChatGLM and Qwen), and we also support the fine-tuned QA model with LoRA weight to deploy locally. **You can modify the deploying details by following the instructions [here]().**
+
 **OpenAI QA**
+
+Using OpenAI API such as GPT-4 to answer the generated questions with few-shot prompting, you need to prepare an **API_Key** to support the server. Please find more 
 
 ```shell
 
 ```
 
 ### Response Assessment
+
+```shell
+python evaluation/eval.py --input_dir [path-to-QA-file]
+```
 
 If you use the quick start, you are expected to obtain the experimental results in Table 2 in our paper, looks like follows:
 
