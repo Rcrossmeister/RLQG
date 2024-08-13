@@ -102,7 +102,7 @@ python evaluation/llama2_qa.py \
     --url http://localhost:[your-url-port]/v1/chat/completions \
     --input_dir [path-to-QG-file] \
     --num_shots 5 \
-		--model_name [QA-model-name]
+    --model_name [QA-model-name] 
 ```
 
 >\[!TIP\]
