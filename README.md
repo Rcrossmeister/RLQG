@@ -102,7 +102,7 @@ python evaluation/llama2_qa.py \
     --url http://localhost:[your-url-port]/v1/chat/completions \
     --model_name [QA-model-name] \
     --input_dir [path-to-QG-file] \
-    --num_shots 5 \
+    --num_shots 5
 ```
 
 >\[!TIP\]
@@ -126,7 +126,7 @@ python evaluation/openai_qa.py \
 python evaluation/eval.py --input_dir [path-to-QA-file]
 ```
 
-If you use the quick start, you are expected to obtain the experimental results in Table 2 in our paper, looks like follows:
+If you are using the quick start script, you are expected to obtain the experimental results in Table 2 in our paper, looks like follows:
 
 ```
 ============================ Practical Eval ============================
