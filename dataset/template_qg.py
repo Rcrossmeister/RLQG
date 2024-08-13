@@ -22,12 +22,12 @@ if __name__ == "__main__":
     parser.add_argument('--lower_case', action='store_true', help='lower case')
     parser.add_argument(
         "--file_path",
-        default="./ACE2005/data/converted-data",
+        default="./dataset/ACE2005/data/converted-data",
         help="path to after processed ace file"
     )
     parser.add_argument(
         "--event_template_doc",
-        default="./ACE2005/ace_templates",
+        default="./dataset/ACE2005/ace_templates",
         help="path to ACE event template file"
     )
     parser.add_argument(
@@ -37,7 +37,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--sft_output_path",
-        default="../model/data",
+        default="./model/data",
         help="path to output the llm-sft file"
     )
 
