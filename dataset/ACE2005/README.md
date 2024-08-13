@@ -27,7 +27,7 @@ ACE2005
 We will be processing the English version of ACE2005. An older version of SpaCy is required for the preprocessing code:
 
 ```shell
-cd ./dataset
+cd ./dataset/ACE2005
 conda deactivate
 conda create --name ace-event-preprocess python=3.7
 conda activate ace-event-preprocess
