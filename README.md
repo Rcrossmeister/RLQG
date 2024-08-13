@@ -37,11 +37,7 @@ We use **[ACE2005](https://catalog.ldc.upenn.edu/LDC2006T06)** and **[RAMS](http
 
 **Pre-processing**
 
-```shell
-cd ./dataset
-```
-
-Then follow `./ACE2005/README.md` or `./RAMS/README.md` to pre-process the ACE2005 or RAMS dataset accordingly.
+Follow **`./ACE2005/README.md`** or **`./RAMS/README.md`** to pre-process your raw ACE2005 or RAMS dataset accordingly. Data pre-processing is compulsory in our study before getting template questions.
 
 **Teamplate questions for ACE2005**
 
@@ -49,15 +45,14 @@ There are 3 types of template questions for ACE2005 dataset include `standard`, 
 
 ```shell
 cd ./dataset
-python ./src/template_qg.py --template_type dynamic
-cd ../
+python ./src/template_qg.py --template_type dynamic && cd ../
 ```
 
-The questions for supervised fine-tune a QG model and also beam search implementation will be saved at `./model/data`.
+The questions used for supervised fine-tune a QG model and also used to obtain beam search implementation will be saved at `./model/data`.
 
 **Teamplate questions for RAMS**
 
-Currently, we only support `standard` template questions in RAMS dataset, see more details [here](./dataset/RAMS/rams_templates). The questions can be directly obtain in the pre-processing step and will be saved at `./model/data`.
+Currently, we only support `standard` template questions in RAMS dataset, see more details [here](./dataset/RAMS/rams_templates). Follw the given template format, you are allowed to support your own question templates. The questions can be directly obtain in the pre-processing step and will be saved at `./model/data`.
 
 ### Models
 
@@ -76,7 +71,7 @@ Or you can replace the local path at argument `--model_name_or_path` by the repo
 The training implementaion was inspired by **[LLaMA Factory](https://github.com/hiyouga/LLaMA-Factory)**, you can check their technical report [here](https://arxiv.org/abs/2403.13372). To have better robustness, in this repository, we use DPO training after SFT instead of as refining algorithm. If you're interested in PPO, please refer to the usage [here]() (will be support in this repository soon). 
 
 > \[!TIP\]
-> **If you need to use the fine-tuned Inverse Prompting Model, please download `Rcross/IPM-Llama-2-13b` to `./backbone_model` before start.**
+> **If you need to use the fine-tuned Inverse Prompting Model (IPM) in our paper, please download `Rcross/IPM-Llama-2-13b` to `./backbone_model` before start.** Notice that we only provides LoRA weights, **please merge them with the backbone model `meta-llama/Llama-2-13b-hf`  before use**. You can also train your customized IPM, please refer [here]() to organize your own training data.
 
 ### Quick Start
 
@@ -87,19 +82,21 @@ cd ./model && sh run.sh
 ```
 
 > \[!IMPORTANT\]
-> **Please download `meta-llama/Llama-2-7b-hf`, `meta-llama/Llama-2-13b-hf` and `meta-llama/Llama-2-13b-chat-hf` to`./backbone_model` before using the quick start script.** 
+> **Please download `meta-llama/Llama-2-7b-hf`, `meta-llama/Llama-2-13b-hf` and `meta-llama/Llama-2-13b-chat-hf` to`./backbone_model` before using the quick start script.** The quick start will use the IPM **`Rcross/IPM-Llama-2-13b`** proposed by our paper, and deploy the **`meta-llama/Llama-2-13b-chat-hf`** as the local off-the-shelf QA model with default port `19777`.
 
 ### Detailed Workflow
 
-Our framework involves the cooperation of several modules, check more details [here](./model/README.md) for their usage.
+You can check the detailed workflow and usage in this [README](), for each module involved in `run.sh`.
 
 ## Evaluation
 
 ### Question Answering
 
-We support two paradigms to answer the generated questions.
+We support two paradigms to answer the generated questions:
 
 **LLaMA-2 QA**
+
+
 
 ```shell
 
