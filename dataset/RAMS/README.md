@@ -21,7 +21,8 @@ RAMS
 
 ## Usage
 
-```
+```shell
+cd ./dataset/RAMS
 python rams_load.py [path-to-RAMS-data]
 ```
 
