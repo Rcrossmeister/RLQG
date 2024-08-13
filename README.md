@@ -100,9 +100,9 @@ Using the open-source model such as LLaMA-2 to answer the generated questions wi
 ```bash
 python evaluation/llama2_qa.py \
     --url http://localhost:[your-url-port]/v1/chat/completions \
+    --model_name [QA-model-name] \
     --input_dir [path-to-QG-file] \
     --num_shots 5 \
-    --model_name [QA-model-name] 
 ```
 
 >\[!TIP\]
@@ -110,10 +110,14 @@ python evaluation/llama2_qa.py \
 
 **OpenAI QA**
 
-Using OpenAI API such as GPT-4 to answer the generated questions with few-shot prompting, you need to prepare an **API_Key** to support the server. Please find more 
+Using OpenAI API such as GPT-4 to answer the generated questions with few-shot prompting, you need to prepare an **API key** to support the server. Please find more details in the [OpenAI API platform]().
 
 ```shell
-
+python evaluation/openai_qa.py \
+    --api_key [your-api-key] \
+    --api_model [your-api-model] \
+    --input_dir [path-to-QG-file] \
+    --num_shots 5 
 ```
 
 ### Response Assessment
