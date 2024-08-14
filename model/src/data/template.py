@@ -776,22 +776,6 @@ register_template(
     ]
 )
 
-# register_template(
-#     name="qg",
-#     prefix=[
-#         "<<SYS>>\n{{system}}\n<</SYS>>\n"
-#     ],
-#     prompt=[
-#         "[INST] {{query}} [/INST]"
-#     ],
-#     system=(
-#         "You are a helpful assistant. "
-#         "Please generate a natural language question with contextual information. "
-#         "The question aim to help language model to extract role from context. "
-#         "Generate question base on the even trigger given."
-#     ),
-#     sep=[]
-# )
 register_template(
     name="qg",
     format_user=StringFormatter(container=["[INST] {{content}} [/INST]"]),
