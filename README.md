@@ -44,7 +44,7 @@ Follow **`./ACE2005/README.md`** or **`./RAMS/README.md`** to pre-process the AC
 We support 3 types of template questions for ACE2005 dataset include `standard`, `annotation` and `dynamic`, you can check more details [here](./dataset/ACE2005/ace_templates). **We recommned the `dynamic` template** if there is no additional setting for you, which is also the default setting for the argument `--template_type`.
 
 ```shell
-python dataset/template_qg.py --template_type dynamic
+python dataset/generator.py --template_type dynamic
 ```
 
 The questions used for supervised fine-tune a QG model and also be used to get beam search implementation will be saved at `./model/data`.
