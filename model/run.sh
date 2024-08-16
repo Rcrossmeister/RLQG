@@ -48,11 +48,10 @@ python bash.py \
     --num_return_sequences 5 \
     --num_beams 10
 
-python ./convert/convert\(from-prediction-to-json\).py
-
-python ./convert/convert\(from-json-to-input\).py
-
-python ./convert/convert\(from-json-to-qg\).py
+python converter.py \
+    --stage QG2IPMnQA \
+    --bs ./out/BS-SFT-dynamic-ACE2005-Llama-2-7 \
+    --ref ./data/REF-dynamic-ACE2005.json
 
 # The inverse prompting process
 python bash.py \
@@ -76,9 +75,10 @@ python ../evaluation/llama2_qa.py \
     --num_shots 5 \
     --url http://localhost:19777/v1/chat/completions
 
-python ./convert/convert\(from-beams-to-json\).py
-
-python ./convert/convert\(from-qa-to-json\).py
+python converter.py \
+    --stage IPMnQA2RW \
+    --ip ./out/IP-BS-SFT-dynamic-ACE2005-Llama-2-7b \
+    --qa ./out/QA-BS-SFT-dynamic-ACE2005-Llama-2-7b
 
 python collector.py 
 
