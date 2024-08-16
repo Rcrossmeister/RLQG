@@ -80,7 +80,7 @@ python ./convert/convert\(from-beams-to-json\).py
 
 python ./convert/convert\(from-qa-to-json\).py
 
-python collect_preference.py 
+python collector.py 
 
 # DPO training with the QA and IPM rewards
 python bash.py \
