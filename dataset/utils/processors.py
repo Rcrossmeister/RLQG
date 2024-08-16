@@ -100,6 +100,7 @@ class dataset_processor:
     ):
         os.makedirs(output_path, exist_ok=True)
         combined_train_dev_output = []
+        ref_output = []
         for dataset, name in [(self.train_dataset, "train"), (self.dev_dataset, "dev"), (self.test_dataset, "test")]:
             if name != "test":
                 for input_text, question_text, _ in dataset:
@@ -108,7 +109,14 @@ class dataset_processor:
                         "input": input_text.replace(" </s>", ""),
                         "output": question_text.replace(" </s>", "")
                     }
+                    ref_ele = {
+                        "instruction": "",
+                        "input": input_text.replace(" </s>", ""),
+                        "output": question_text.replace(" </s>", ""),
+                        "answer": (", ".join(_)) if _ else "None"
+                    }
                     combined_train_dev_output.append(template_output)
+                    ref_output.append(ref_ele)
             else:
                 output_list = []
                 aim_path = output_path + "/QG-" + template_type + "-ACE2005.json"
@@ -123,7 +131,11 @@ class dataset_processor:
                     json.dump(output_list, file, indent=4)
                     file.close()
         
+        combined_ref_path = output_path + "/REF-" + template_type + "-ACE2005.json"
         combined_aim_path = output_path + "/SFT-" + template_type + "-ACE2005.json"
         with open(combined_aim_path, 'w', encoding='utf-8') as file:
             json.dump(combined_train_dev_output, file, indent=4)
+            file.close()
+        with open(combined_ref_path, 'w', encoding='utf-8') as file:
+            json.dump(ref_output, file, indent=4)
             file.close()
