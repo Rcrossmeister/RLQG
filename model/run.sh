@@ -80,7 +80,9 @@ python converter.py \
     --ip ./out/IP-BS-SFT-dynamic-ACE2005-Llama-2-7b \
     --qa ./out/QA-BS-SFT-dynamic-ACE2005-Llama-2-7b
 
-python collector.py 
+python collector.py \
+    --input_path ./out/RW-dynamic-ACE2005-Llama-2-7b.json \
+    --output_path ./data/PPO-dynamic-ACE2005.json
 
 # DPO training with the QA and IPM rewards
 python bash.py \

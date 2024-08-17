@@ -82,9 +82,9 @@ if __name__ == "__main__":
     qa_path = args.qa + ""
 
     output_paths = {
-        "ip_input": "",
-        "qa_input": "",
-        "collect_input": "",
+        "ip_input": "./data/IP-dynamic-ACE2005.json",
+        "qa_input": "../evaluation/questions/BS-SFT-dynamic-ACE2005-Llama-2-7b.json",
+        "collect_input": "./out/RW-dynamic-ACE2005-Llama-2-7b.json",
     }
 
     # Run the selected stage

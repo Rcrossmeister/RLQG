@@ -32,12 +32,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Selecting Questions')
     parser.add_argument('--test', action='store_true')
     parser.add_argument(
-        "--input_dir",
-        default="",
+        "--input_path",
+        default="./out/RW-dynamic-ACE2005-Llama-2-7b.json",
     )
     parser.add_argument(
-        "--output_dir",
-        default="",
+        "--output_path",
+        default="./data/PPO-dynamic-ACE2005.json",
     )
     parser.add_argument(
         "--alpha",
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    with open(args.input_dir) as file:
+    with open(args.input_path) as file:
         data = json.load(file)
         file.close()
 
@@ -59,7 +59,7 @@ if __name__ == "__main__":
             results.append(result)
 
     out = []
-    aim_path = args.output_dir + "/rewardRAMS-question-a" + str(args.alpha) + "-b" + str(args.beta) + ".json"
+    aim_path = args.output_path
     for item in results:
         recover_score = item["rec-score"]
         qa_score = item["qa-score"]
