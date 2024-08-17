@@ -2,7 +2,9 @@
 
 **[2024/08] The video presentation of our paper will be available soon.**
 
-**[2024/08] The presentation of our paper are scheduled at Virtual Poster Session 2, check the poster and slides [here](./slides).**
+**[2024/08] The presentation of our paper is scheduled at Virtual Poster Session 2, check the poster and slides [here](./slides).**
+
+**[2024/07] The code is available now.**
 
 **[2024/05] Our paper is accepted as a findings paper in ACL2024!**
 
@@ -14,7 +16,7 @@ We propose a novel framework **RLQG** for generating better questions in QA-base
 
 ### Environment
 
-**The GPU resources we use in our study is 4*A800-SXM4-80G with the corresponding CUDA version 12.1,** we strongly recommend using the torch version above 2.0.
+**The GPU resources we use in our study is 4*A800-SXM4-80G with the corresponding CUDA version 12.1,** we strongly recommend using the [PyTorch](https://pytorch.org/) version above 2.0.
 
 ```shell
 # Clone the repository
@@ -33,15 +35,15 @@ python -m nltk.downloader punkt
 
 ### Dataset
 
-We use **[ACE2005](https://catalog.ldc.upenn.edu/LDC2006T06)** and **[RAMS](https://nlp.jhu.edu/rams/)** dataset in our study, please follow their copyright to download the required one (ACE2005 with more template options is prefered), another widely-used dataset [WiKiEvent](https://github.com/raspberryice/gen-arg) is planning to support soon. 
+We use the **[ACE2005](https://catalog.ldc.upenn.edu/LDC2006T06)** and the **[RAMS](https://nlp.jhu.edu/rams/)** dataset in our study, please follow their copyright to download the required one (ACE2005 with more template options is preferred), another widely-used dataset [WiKiEvent](https://github.com/raspberryice/gen-arg) is planning to support soon. 
 
 **Pre-processing**
 
-Follow **`./ACE2005/README.md`** or **`./RAMS/README.md`** to pre-process the ACE2005 or RAMS dataset accordingly. Data pre-processing is compulsory in our study when you are using raw dataset before getting template questions.
+Follow **`./ACE2005/README.md`** or **`./RAMS/README.md`** to pre-process the ACE2005 or RAMS dataset accordingly. Data pre-processing is compulsory in our study when you are using raw datasets before getting template questions.
 
 **Teamplate questions for ACE2005**
 
-We support 3 types of template questions for ACE2005 dataset include `standard`, `annotation` and `dynamic`, you can check more details [here](./dataset/ACE2005/ace_templates). **We recommned the `dynamic` template** if there is no additional setting for you, which is also the default setting for the argument `--template_type`.
+We support 3 types of template questions for ACE2005 dataset include `standard`, `annotation` and `dynamic`, you can check more details [here](./dataset/ACE2005/ace_templates). **We recommend the `dynamic` template** if there is no additional setting for you, which is also the default setting for the argument `--template_type`.
 
 ```shell
 python dataset/generator.py --template_type dynamic
@@ -51,7 +53,7 @@ The questions used for supervised fine-tune a QG model and also be used to get b
 
 **Teamplate questions for RAMS**
 
-Currently, we only support `standard` template questions in RAMS dataset, see more details [here](./dataset/RAMS/rams_templates). Follw the given template format, you are allowed to support your own question templates. The questions can be directly obtain in the pre-processing step and will be saved at `./model/data`.
+Currently, we only support `standard` template questions in RAMS dataset, see more details [here](./dataset/RAMS/rams_templates). Follow the given template format; you are allowed to create your own question templates. The questions can be directly obtained in the pre-processing step and will be saved at `./model/data`.
 
 ### Models
 
@@ -63,7 +65,7 @@ git lfs install
 git clone https://huggingface.co/meta-llama/Llama-2-7b-hf
 ```
 
-Or you can replace the local path at argument `--model_name_or_path` by the repository name of huggingface (e.g. `meta-llama/Llama-2-7b-hf`) in the following training script, the model weight will be download and load automatically.  
+Or you can replace the local path at argument `--model_name_or_path` by the repository name of huggingface (e.g. `meta-llama/Llama-2-7b-hf`) in the following training script, the model weight will be downloaded and loaded automatically.  
 
 ## Training
 
@@ -81,7 +83,7 @@ cd ./model && sh run.sh
 ```
 
 > \[!IMPORTANT\]
-> **Please download `meta-llama/Llama-2-7b-hf`, `meta-llama/Llama-2-13b-hf` and `meta-llama/Llama-2-13b-chat-hf` to`./backbone_model` before using the quick start script.** The quick start will use the IPM **`Rcross/IPM-Llama-2-13b`** proposed by our paper, and deploy the **`meta-llama/Llama-2-13b-chat-hf`** as the local off-the-shelf QA model with default port `19777`.
+> **Please download `meta-llama/Llama-2-7b-hf`, `meta-llama/Llama-2-13b-hf` and `meta-llama/Llama-2-13b-chat-hf` to`./backbone_model` before using the quick start script.** "The quick start will use the IPM **`Rcross/IPM-Llama-2-13b`** proposed in our paper, and deploy the **`meta-llama/Llama-2-13b-chat-hf`** as the local off-the-shelf QA model with the default port `19777`."
 
 ### Detailed Workflow
 
@@ -95,7 +97,7 @@ We support two paradigms to answer the generated questions:
 
 **LLaMA-2 QA**
 
-Using the open-source model such as LLaMA-2 to answer the generated questions with few-shot prompting, the server is deployed follow OpenAI API style. Fill in `[your-url-port]` with the port you use to deploy your local QA model.
+Using the open-source model such as LLaMA-2 to answer the generated questions with few-shot prompting, the server is deployed following the OpenAI API style. Fill in `[your-url-port]` with the port you use to deploy your local QA model.
 
 ```bash
 python evaluation/llama2_qa.py \
@@ -110,7 +112,7 @@ python evaluation/llama2_qa.py \
 
 **OpenAI QA**
 
-Using OpenAI API such as GPT-4 to answer the generated questions with few-shot prompting, you need to prepare an **API key** to support the server. Please find more details in the [OpenAI API platform]().
+Using OpenAI API such as GPT-4 to answer the generated questions with few-shot prompting, you need to prepare an **API key **(e.g. sk-a1b2c3) to support the server. Please find more details in the [OpenAI API platform](https://platform.openai.com/).
 
 ```shell
 python evaluation/openai_qa.py \
@@ -126,7 +128,7 @@ python evaluation/openai_qa.py \
 python evaluation/eval.py --input_dir [path-to-QA-file]
 ```
 
-If you are using the quick start script, you are expected to obtain the experimental results in Table 2 in our paper, looks like follows:
+If you are using the quick start script, you are expected to obtain the experimental results in Table 2 in our paper, which looks like follows:
 
 ```
 ============================ Practical Eval ============================
