@@ -145,10 +145,11 @@ Value(%)          21.94                24.31                31.92
 Please cite our paper if you include RLQG in your work:
 
 ```
-@article{hong2024towards,
-  title={Towards Better Question Generation in QA-based Event Extraction},
-  author={Hong, Zijin and Liu, Jian},
-  journal={arXiv preprint arXiv:2405.10517},
-  year={2024}
+@inproceedings{hong2024towards,
+    title = "Towards Better Question Generation in {QA}-based Event Extraction",
+    author = "Hong, Zijin  and
+      Liu, Jian",
+    booktitle = "Findings of the Association for Computational Linguistics ACL 2024",
+    year = "2024"
 }
 ```
