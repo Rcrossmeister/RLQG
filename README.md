@@ -101,7 +101,7 @@ Using the open-source model such as LLaMA-2 to answer the generated questions wi
 python evaluation/llama2_qa.py \
     --url http://localhost:[your-url-port]/v1/chat/completions \
     --model_name [QA-model-name] \
-    --input_dir [path-to-QG-file] \
+    --input_path [path-to-QG-file] \
     --num_shots 5
 ```
 
@@ -116,7 +116,7 @@ Using OpenAI API such as GPT-4 to answer the generated questions with few-shot p
 python evaluation/openai_qa.py \
     --api_key [your-api-key] \
     --api_model [your-api-model] \
-    --input_dir [path-to-QG-file] \
+    --input_path [path-to-QG-file] \
     --num_shots 5 
 ```
 
