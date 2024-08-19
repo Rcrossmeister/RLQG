@@ -4,4 +4,4 @@ This README provide a detailed usage for each module of the RLQG framework, you 
 
 ## Setup
 
-In our study, we use an off-the-shelf QA model to answer the generated questions.
+In our study, we utilize an off-the-shelf QA model to answer the generated questions. 
