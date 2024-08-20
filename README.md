@@ -112,7 +112,7 @@ python evaluation/llama2_qa.py \
 
 **OpenAI QA**
 
-Using OpenAI API such as GPT-4 to answer the generated questions with few-shot prompting, you need to prepare an **API key **(e.g. sk-a1b2c3) to support the server. Please find more details in the [OpenAI API platform](https://platform.openai.com/).
+Using OpenAI API such as GPT-4 to answer the generated questions with few-shot prompting, you need to prepare an **API key**(e.g. sk-a1b2c3) to support the server. Please find more details in the [OpenAI API platform](https://platform.openai.com/).
 
 ```shell
 python evaluation/openai_qa.py \
