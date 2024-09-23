@@ -1,0 +1,15 @@
+{
+    "SFT-dynamic-ACE2005": {
+        "file_name": "SFT-dynamic-ACE2005.json"
+    },
+    "IP-dynamic-ACE2005": {
+        "IP-dynamic-ACE2005": "IP-dynamic-ACE2005.json"
+    },
+    "PPO-dynamic-ACE2005": {
+        "file_name": "PPO-dynamic-ACE2005.json",
+        "ranking": true
+    },
+    "QG-dynamic-ACE2005": {
+        "file_name": "QG-dynamic-ACE2005.json"
+    }
+}
