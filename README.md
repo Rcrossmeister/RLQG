@@ -149,8 +149,7 @@ Please cite our paper if you include RLQG in your work:
 ```
 @inproceedings{hong2024towards,
     title = "Towards Better Question Generation in {QA}-based Event Extraction",
-    author = "Hong, Zijin  and
-      Liu, Jian",
+    author = "Hong, Zijin  and Liu, Jian",
     booktitle = "Findings of the Association for Computational Linguistics ACL 2024",
     year = "2024"
 }
