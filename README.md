@@ -1,6 +1,6 @@
 # RLQG - Towards Better QG in QA-based EE
 
-**[2024/10] Check our video presentation in [Underline](https://underline.io/events/466/posters/18354/poster/102023-knowledge-to-sql-enhancing-sql-generation-with-data-expert-llm)!**
+**[2024/10] Check our video presentation in [Underline](https://underline.io/events/466/posters/18354/poster/103553-towards-better-question-generation-in-qa-based-event-extraction)!**
 
 **[2024/08] The video presentation of our paper will be available soon.**
 
