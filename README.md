@@ -10,7 +10,7 @@
 
 **[2024/05] Our paper is accepted as a findings paper in ACL2024!**
 
-We propose a novel framework **RLQG** for generating better questions in QA-based event extraction via reinforcement learning, the paper is available [here](https://arxiv.org/abs/2402.11517).
+We propose a novel framework **RLQG** for generating better questions in QA-based event extraction via reinforcement learning, the paper is available [here](https://aclanthology.org/2024.findings-acl.535.pdf).
 
 <img src="./slides/Framework.png" alt="Framework" style="zoom:150%;" />
 
