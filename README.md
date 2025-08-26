@@ -1,5 +1,7 @@
 # RLQG - Towards Better QG in QA-based EE
 
+**[2025/08] All the code has been released. This repository will no longer be updated. Please feel free to email me or open an issue if you need any assistance.**
+
 **[2024/10] Check our video presentation in [Underline](https://underline.io/events/466/posters/18354/poster/103553-towards-better-question-generation-in-qa-based-event-extraction)!**
 
 **[2024/08] The video presentation of our paper will be available soon.**
@@ -37,7 +39,7 @@ python -m nltk.downloader punkt
 
 ### Dataset
 
-We use the **[ACE2005](https://catalog.ldc.upenn.edu/LDC2006T06)** and the **[RAMS](https://nlp.jhu.edu/rams/)** dataset in our study, please follow their copyright to download the required one (ACE2005 with more template options is preferred), another widely-used dataset [WiKiEvent](https://github.com/raspberryice/gen-arg) is planning to support soon. 
+We use the **[ACE2005](https://catalog.ldc.upenn.edu/LDC2006T06)** and the **[RAMS](https://nlp.jhu.edu/rams/)** dataset in our study, please follow their copyright to download the required one (ACE2005 with more template options is preferred). 
 
 **Pre-processing**
 
@@ -71,10 +73,10 @@ Or you can replace the local path at argument `--model_name_or_path` by the repo
 
 ## Training
 
-The training implementaion was inspired by **[LLaMA Factory](https://github.com/hiyouga/LLaMA-Factory)**, you can check their technical report [here](https://arxiv.org/abs/2403.13372). To have better robustness, in this repository, we use DPO training after SFT instead of as refining algorithm. If you're interested in PPO, please refer to the usage [here]() (will be support in this repository soon). 
+The training implementaion was inspired by **[LLaMA Factory](https://github.com/hiyouga/LLaMA-Factory)**, you can check their technical report [here](https://arxiv.org/abs/2403.13372). To have better robustness, in this repository, we use DPO training after SFT instead of as refining algorithm. You can also use the PPO algorithm by following the instructions of LLaMA Factory with the exact same dataset as DPO.
 
 > \[!TIP\]
-> **If you need to use the fine-tuned Inverse Prompting Model (IPM) in our paper, please download `Rcross/IPM-Llama-2-13b` to `./backbone_model` before start.** Notice that we only provides LoRA weights, **please merge them with the backbone model `meta-llama/Llama-2-13b-hf`  before use**. You can also train your customized IPM, please refer [here]() to organize your own training data.
+> **If you need to use the fine-tuned Inverse Prompting Model (IPM) in our paper, please download `Rcross/IPM-Llama-2-13b` to `./backbone_model` before start.** Notice that we only provides LoRA weights, **please merge them with the backbone model `meta-llama/Llama-2-13b-hf`  before use**. You can also train your customized IPM based on your preference.
 
 ### Quick Start
 
@@ -86,10 +88,6 @@ cd ./model && sh run.sh
 
 > \[!IMPORTANT\]
 > **Please download `meta-llama/Llama-2-7b-hf`, `meta-llama/Llama-2-13b-hf` and `meta-llama/Llama-2-13b-chat-hf` to`./backbone_model` before using the quick start script.** "The quick start will use the IPM **`Rcross/IPM-Llama-2-13b`** proposed in our paper, and deploy the **`meta-llama/Llama-2-13b-chat-hf`** as the local off-the-shelf QA model with the default port `19777`."
-
-### Detailed Workflow
-
-You can check the detailed workflow and more usage in this [README](), which explain each module involved in the quick start script `run.sh`.
 
 ## Evaluation
 
@@ -110,7 +108,7 @@ python evaluation/llama2_qa.py \
 ```
 
 >\[!TIP\]
->We support various open-source model to serve as the QA model in our framework (e.g. ChatGLM and Qwen), and we also support the fine-tuned QA model with LoRA weight to deploy locally. **You can modify the deploying details by following the instructions [here]().**
+>We support various open-source model to serve as the QA model in our framework (e.g. ChatGLM and Qwen), and we also support the fine-tuned QA model with LoRA weight to deploy locally. 
 
 **OpenAI QA**
 
@@ -156,3 +154,10 @@ Please cite our paper if you include RLQG in your work:
     year = "2024"
 }
 ```
+
+Feel free to reach out via email if you need any help:
+
+```
+zijin.hong@connect.polyu.hk
+```
+
