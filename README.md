@@ -1,6 +1,6 @@
 # RLQG - Towards Better QG in QA-based EE
 
-**[2025/08] All the code has been released. This repository will no longer be updated. Please feel free to email me or open an issue if you need any assistance.**
+**[2025/08] All the code has been released. This repository will no longer be updated. Please feel free to email or open an issue if you need any assistance.**
 
 **[2024/10] Check our video presentation in [Underline](https://underline.io/events/466/posters/18354/poster/103553-towards-better-question-generation-in-qa-based-event-extraction)!**
 
