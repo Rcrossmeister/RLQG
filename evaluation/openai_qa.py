@@ -32,12 +32,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='API QG')
     parser.add_argument(
         "--api_key",
-        default="sk-sOBGld2dsK5J0QhRFf9a82777b96407bBb9b31F154037424",
+        default="",
         help="key for calling api",
     )
     parser.add_argument(
         "--api_base",
-        default="https://api.openai.com/v1",
+        default="",
         help="base for calling api",
     )
     parser.add_argument(
